@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= modalTitle %> </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="alert <%= background %> d-flex align-items-center justify-content-around" role="alert">
+        <i class="fa-solid <%= icone %> fa-beat fa-2xl <%= color %>"></i>
+        <div class="" style="color: black; font-weight: 500; font-size: 1.5rem;"><%= message %></div>
+        <div class="d-flex ">
+          <button
+            type="button"
+            class="btn"
+            onclick="handleClose()"
+          >
+          <i class="fa-solid fa-square-xmark fa-2xl <%= color %>"></i></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+      function handleClose() {
+        window.location.href = "<%= redirectUrl %>";
+      }
+    </script>
+  </body>
+</html>

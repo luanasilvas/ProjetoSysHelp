@@ -1,0 +1,32 @@
+<%- include('../header') %>
+<div class="container-fluid">
+  <!-- Page Heading -->
+                  <h1 class="h3 mb-2 text-gray-800">Cadastrar Tarefa</h1>
+                    <div class="row">
+                      <div class="col-md-12 mx-auto ">
+                            <form action="/tarefa" method="POST">
+                              <div class="mb-1">
+                                <label for="name" class="col-sm-3 col-form-label col-form-label-md">Nome:</label>
+                                <input type="text" name="name" class="form-control form-control-md" placeholder="Informe o nome..."
+                                  required />
+                              </div>
+                              <div class="mb-1">
+                                <label for="idade" class="col-sm-3 col-form-label col-form-label-md">Idade:</label>
+                                <input type="number" step="1" name="idade" class="form-control form-control-md"
+                                  placeholder="Digite a idade da pessoa..." required />
+                              </div>
+                              <div class="mb-1">
+                                <label for="casado" class="col-sm-3 col-form-label col-form-label-md">Casado:</label>
+                                <select name="casado" id="casado" class="form-control form-control-md">
+                                  <option value="1" >Sim</option>
+                                  <option value="0" >Não</option>
+                              </select>
+                              </div>              
+                              <div class="mb-3 mt-3 d-grid">
+                                <input type="submit" name="submit" value="Gravar" class="btn btn-primary btn-md" />
+                              </div>
+                            </form>
+                        </div>
+                  </div>
+</div>
+            <%- include('../footer') %>

@@ -1,0 +1,41 @@
+<%- include('../header') %>
+
+  <% if ( tarefas !='' ) { tarefas.forEach((row, index)=> { %>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 mx-auto mt-4">
+          <div class="card shadow">
+            <div class="card-header text-bg-secondary" >
+              <h3 class="text-light">Editar Pessoa <%= row.id %></h3>
+            </div>
+            <div class="card-body p-4">
+              <form action="/pessoa/<%= row.id %>" method="POST">
+                <div class="mb-3">
+                  <label for="name" class="col-sm-3 col-form-label col-form-label-lg">Nome:</label>
+                  <input type="text" name="name" class="form-control form-control-lg" placeholder="Informe o nome..."
+                    value="<%= row.name %>" required />
+                </div>
+                <div class="mb-3">
+                  <label for="idade" class="col-sm-3 col-form-label col-form-label-lg">Idade:</label>
+                  <input type="number"  name="idade" class="form-control form-control-lg"
+                    placeholder="Digite a idade da pessoa..." value="<%= row.idade %>" required />
+                </div>
+                <div class="mb-3">
+                  <label for="casado" class="col-sm-3 col-form-label col-form-label-lg">Casado:</label>
+                  <select name="casado" id="casado" class="form-control form-control-lg">
+                      <option value=1 <%= row.casado == 1 ? 'selected' : '' %>>Sim</option>
+                      <option value=0 <%= row.casado == 0 ? 'selected' : '' %>>Não</option>
+                  </select>
+              </div>
+                <div class="mb-3 d-grid">
+                  <input type="submit" name="submit" value="Gravar" class="btn btn-secondary btn-lg" />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% }) } %>
+
+<%- include('../footer') %>
