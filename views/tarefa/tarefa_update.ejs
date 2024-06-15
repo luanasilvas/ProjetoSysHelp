@@ -1,41 +1,81 @@
 <%- include('../header') %>
 
-  <% if ( tarefas !='' ) { tarefas.forEach((row, index)=> { %>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 mx-auto mt-4">
-          <div class="card shadow">
-            <div class="card-header text-bg-secondary" >
-              <h3 class="text-light">Editar Pessoa <%= row.id %></h3>
+<% if ( tarefa !='' ) { tarefa.forEach((row, index)=> { %>
+<!-- Page Heading -->
+<div class="container-fluid">
+  <h1 class="h3 mb-2 text-gray-800">Editar a Tarefa <%= row.id %></h1>
+  <div class="card shadow">
+    <div class="row pl-3 pr-3 pt-1">
+      <div class="col-md-12 mx-auto">
+        <form action="/tarefa/<%= row.id %>"" method="POST">
+          <div class="mb-1">
+            <label for="name" class="pl-1 col-form-label col-form-label-sm"
+              >Descrição:</label
+            >
+            <input
+              type="text"
+              name="descricao"
+              class="form-control form-control-md"
+              placeholder="Informe a descrição da tarefa..."
+              required
+            />
+          </div>
+          <div class="mb-1">
+            <label for="casado" class="pl-1 col-form-label col-form-label-sm"
+              >Status:</label
+            >
+            <select
+              name="casado"
+              id="casado"
+              class="form-control form-control-md"
+              disabled
+            >
+              <option value="1">Aberto</option>
+            </select>
+          </div>
+          <div class="mb-1 row">
+            <div class="col">
+              <label
+                for="dataCadastro"
+                class="pl-1 col-form-label col-form-label-sm"
+                >Data de Cadastro:</label
+              >
+              <input
+                type="date"
+                step="1"
+                name="dataCadastro"
+                class="form-control form-control-md "
+                disabled
+              />
             </div>
-            <div class="card-body p-4">
-              <form action="/pessoa/<%= row.id %>" method="POST">
-                <div class="mb-3">
-                  <label for="name" class="col-sm-3 col-form-label col-form-label-lg">Nome:</label>
-                  <input type="text" name="name" class="form-control form-control-lg" placeholder="Informe o nome..."
-                    value="<%= row.name %>" required />
-                </div>
-                <div class="mb-3">
-                  <label for="idade" class="col-sm-3 col-form-label col-form-label-lg">Idade:</label>
-                  <input type="number"  name="idade" class="form-control form-control-lg"
-                    placeholder="Digite a idade da pessoa..." value="<%= row.idade %>" required />
-                </div>
-                <div class="mb-3">
-                  <label for="casado" class="col-sm-3 col-form-label col-form-label-lg">Casado:</label>
-                  <select name="casado" id="casado" class="form-control form-control-lg">
-                      <option value=1 <%= row.casado == 1 ? 'selected' : '' %>>Sim</option>
-                      <option value=0 <%= row.casado == 0 ? 'selected' : '' %>>Não</option>
-                  </select>
-              </div>
-                <div class="mb-3 d-grid">
-                  <input type="submit" name="submit" value="Gravar" class="btn btn-secondary btn-lg" />
-                </div>
-              </form>
+            <div class="col">
+              <label
+                for="dataCadastro"
+                class="pl-1 col-form-label col-form-label-sm "
+                >Data de Cadastro:</label
+              >
+              <input
+                type="date"
+                step="1"
+                name="dataCadastro"
+                class="form-control form-control-md disabled"
+                placeholder="Digite a idade da pessoa..."
+                disabled
+              />
             </div>
           </div>
-        </div>
+          <div class="mb-3 mt-3 d-grid">
+            <input
+              type="submit"
+              name="submit"
+              value="Gravar"
+              class="btn btn-primary btn-md"
+            />
+          </div>
+        </form>
       </div>
     </div>
-    <% }) } %>
-
+  </div>
+</div>
+<% }) } %>
 <%- include('../footer') %>

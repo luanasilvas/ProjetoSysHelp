@@ -129,14 +129,13 @@ class tarefaController{
     const { id } = req.params;
     const tarefa = tarefaModel.delete(id);
     return tarefa
-      // .then((result) => res.status(200).send("<script> alert('Pessoa excluída com sucesso!'); window.location='../../pessoa' </script>"))
       .then((result) => {
         res.status(200).render('modal', {
             color: 'text-danger',
             background: 'alert-danger',
             icone: 'fa-trash',
             modalTitle: 'Cadastro Excluido',
-            message: `Pessoa ${id} excluída com sucesso!`,
+            message: `Tarefa ${id} excluída com sucesso!`,
             redirectUrl: '/tarefa'
         });
     })

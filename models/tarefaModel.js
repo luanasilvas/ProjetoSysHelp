@@ -73,10 +73,7 @@ class tarefaModel {
             DATE_FORMAT(t.dataFinalizado, '%d/%m/%Y') AS dataFinalizado 
         FROM 
             tarefas t 
-        INNER JOIN 
-            status s 
-        ON 
-            s.id = t.status_id
+        INNER JOIN status s ON s.id = t.status_id
          WHERE id = ?
     `; 
   
