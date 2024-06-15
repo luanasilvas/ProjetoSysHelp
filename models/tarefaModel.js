@@ -26,8 +26,9 @@ class tarefaModel {
   }
 
   apiCreate(newtarefa) {
-    const sql = "INSERT INTO tarefas SET ?"; 
-    return this.executeSQL(sql, newtarefa);
+    const sql = "INSERT INTO tarefas (descricao, status_id, dataCadastro) VALUES (?,1,CURRENT_DATE)"; 
+    const values = [newtarefa.descricao, newtarefa.status_id, newtarefa.datacadastro]; 
+    return this.executeSQL(sql, values); 
   }
 
   apiUpdate(updatedtarefa, id) {
@@ -83,7 +84,7 @@ class tarefaModel {
   }
 
   create(newtarefa) {
-    const sql = "INSERT INTO tarefas (descricao, status_id, dataCadastro) VALUES (?,?,CURRENT_DATE)"; 
+    const sql = "INSERT INTO tarefas (descricao, status_id, dataCadastro) VALUES (?,1,CURRENT_DATE)"; 
     const values = [newtarefa.descricao, newtarefa.status_id, newtarefa.datacadastro]; 
     return this.executeSQL(sql, values); 
   }

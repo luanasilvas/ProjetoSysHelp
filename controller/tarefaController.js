@@ -102,8 +102,8 @@ class tarefaController{
             background: 'alert-success',
             icone: 'fa-check',
             modalTitle: 'Cadastro Inserido',
-            message: `Pessoa cadastrada com sucesso!`,
-            redirectUrl: '/tarefa'
+            message: `Tarefa cadastrada com sucesso!`,
+            redirectUrl: '/tarefa/create'
         });
     })
       .catch((error) => res.status(400).send(error.message));    

@@ -1,32 +1,79 @@
 <%- include('../header') %>
+
+<!-- Page Heading -->
 <div class="container-fluid">
-  <!-- Page Heading -->
-                  <h1 class="h3 mb-2 text-gray-800">Cadastrar Tarefa</h1>
-                    <div class="row">
-                      <div class="col-md-12 mx-auto ">
-                            <form action="/tarefa" method="POST">
-                              <div class="mb-1">
-                                <label for="name" class="col-sm-3 col-form-label col-form-label-md">Nome:</label>
-                                <input type="text" name="name" class="form-control form-control-md" placeholder="Informe o nome..."
-                                  required />
-                              </div>
-                              <div class="mb-1">
-                                <label for="idade" class="col-sm-3 col-form-label col-form-label-md">Idade:</label>
-                                <input type="number" step="1" name="idade" class="form-control form-control-md"
-                                  placeholder="Digite a idade da pessoa..." required />
-                              </div>
-                              <div class="mb-1">
-                                <label for="casado" class="col-sm-3 col-form-label col-form-label-md">Casado:</label>
-                                <select name="casado" id="casado" class="form-control form-control-md">
-                                  <option value="1" >Sim</option>
-                                  <option value="0" >Não</option>
-                              </select>
-                              </div>              
-                              <div class="mb-3 mt-3 d-grid">
-                                <input type="submit" name="submit" value="Gravar" class="btn btn-primary btn-md" />
-                              </div>
-                            </form>
-                        </div>
-                  </div>
+  <h1 class="h3 mb-2 text-gray-800">Cadastrar Tarefa</h1>
+  <div class="card shadow">
+    <div class="row pl-3 pr-3 pt-1">
+      <div class="col-md-12 mx-auto">
+        <form action="/tarefa" method="POST">
+          <div class="mb-1">
+            <label for="name" class="pl-1 col-form-label col-form-label-sm"
+              >Descrição:</label
+            >
+            <input
+              type="text"
+              name="descricao"
+              class="form-control form-control-md"
+              placeholder="Informe a descrição da tarefa..."
+              required
+            />
+          </div>
+          <div class="mb-1">
+            <label for="casado" class="pl-1 col-form-label col-form-label-sm"
+              >Status:</label
+            >
+            <select
+              name="casado"
+              id="casado"
+              class="form-control form-control-md"
+              disabled
+            >
+              <option value="1">Aberto</option>
+            </select>
+          </div>
+          <div class="mb-1 row">
+            <div class="col">
+              <label
+                for="dataCadastro"
+                class="pl-1 col-form-label col-form-label-sm"
+                >Data de Cadastro:</label
+              >
+              <input
+                type="date"
+                step="1"
+                name="dataCadastro"
+                class="form-control form-control-md "
+                disabled
+              />
+            </div>
+            <div class="col">
+              <label
+                for="dataCadastro"
+                class="pl-1 col-form-label col-form-label-sm "
+                >Data de Cadastro:</label
+              >
+              <input
+                type="date"
+                step="1"
+                name="dataCadastro"
+                class="form-control form-control-md disabled"
+                placeholder="Digite a idade da pessoa..."
+                disabled
+              />
+            </div>
+          </div>
+          <div class="mb-3 mt-3 d-grid">
+            <input
+              type="submit"
+              name="submit"
+              value="Gravar"
+              class="btn btn-primary btn-md"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
-            <%- include('../footer') %>
+<%- include('../footer') %>
