@@ -70,8 +70,8 @@ class tarefaController{
     return tarefaList
       .then((result) =>
         result.length == 0
-          ? res.status(404).render("./tarefa/tarefa_read", { title: "Listar Tarefa", tarefa: result, search: '' })
-          : res.status(200).render("./tarefa/tarefa_read", { title: "Listar Tarefa", tarefa: result , search: '' })
+          ? res.status(404).render("./tarefa/tarefa_read", { title: "Listar Tarefa", tarefas: result, search: '' })
+          : res.status(200).render("./tarefa/tarefa_read", { title: "Listar Tarefa", tarefas: result , search: '' })
       )
       .catch((error) => res.status(400).send(error.message));  
   }
@@ -87,7 +87,7 @@ class tarefaController{
       )
       .catch((error) => res.status(400).send(error.message));  
   }
-
+  
   viewHomePage(req, res) {
     return res.status(200).render("./index", { title: "Página Inicial"});
   }

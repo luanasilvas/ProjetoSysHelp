@@ -64,20 +64,8 @@ class tarefaModel {
 }
 
   read(id) {
-    const sql =`
-        SELECT 
-            t.id, 
-            t.descricao AS descricao, 
-            s.descricao AS status, 
-            DATE_FORMAT(t.dataCadastro, '%d/%m/%Y') AS dataCadastro, 
-            DATE_FORMAT(t.dataFinalizado, '%d/%m/%Y') AS dataFinalizado 
-        FROM 
-            tarefas t 
-        INNER JOIN status s ON s.id = t.status_id
-         WHERE id = ?
-    `; 
-  
-    return this.executeSQL(sql, id); 
+    const sql = "SELECT id, descricao, status_id, DATE_FORMAT(dataCadastro, '%d/%m/%Y') as dataCadastro, DATE_FORMAT(dataFinalizado, '%d/%m/%Y') as dataFinalizado FROM tarefas WHERE id = ?"; 
+    return this.executeSQL(sql, [id]); 
   }
 
   create(newtarefa) {

@@ -1,6 +1,6 @@
 <%- include('../header') %>
 
-<% if ( tarefa !='' ) { tarefa.forEach((row, index)=> { %>
+<% if ( tarefas !='' ) { tarefas.forEach((row, index)=> { %>
 <!-- Page Heading -->
 <div class="container-fluid">
   <h1 class="h3 mb-2 text-gray-800">Editar a Tarefa <%= row.id %></h1>
@@ -17,20 +17,24 @@
               name="descricao"
               class="form-control form-control-md"
               placeholder="Informe a descrição da tarefa..."
+              value="<%= row.descricao %>"
               required
-            />
+            >
           </div>
           <div class="mb-1">
-            <label for="casado" class="pl-1 col-form-label col-form-label-sm"
+            <label for="status" class="pl-1 col-form-label col-form-label-sm"
               >Status:</label
             >
             <select
-              name="casado"
-              id="casado"
+              name="status"
+              id="status"
               class="form-control form-control-md"
-              disabled
+              value="<%= row.status %>"
             >
               <option value="1">Aberto</option>
+              <option value="2">Em Analise</option>
+              <option value="3">Encaminhado Desenvolvimento</option>
+              <option value="2">Finalizado</option>
             </select>
           </div>
           <div class="mb-1 row">
@@ -45,22 +49,22 @@
                 step="1"
                 name="dataCadastro"
                 class="form-control form-control-md "
+                value="<%= row.dataCadastro %>"
                 disabled
               />
             </div>
             <div class="col">
               <label
-                for="dataCadastro"
+                for="dataFinalizado"
                 class="pl-1 col-form-label col-form-label-sm "
-                >Data de Cadastro:</label
+                >Data de Finalização:</label
               >
               <input
                 type="date"
                 step="1"
-                name="dataCadastro"
+                name="dataFinalizado"
                 class="form-control form-control-md disabled"
-                placeholder="Digite a idade da pessoa..."
-                disabled
+                value="<%= row.dataFinalizado %>"
               />
             </div>
           </div>

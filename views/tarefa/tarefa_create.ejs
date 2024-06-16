@@ -8,7 +8,7 @@
       <div class="col-md-12 mx-auto">
         <form action="/tarefa" method="POST">
           <div class="mb-1">
-            <label for="name" class="pl-1 col-form-label col-form-label-sm"
+            <label for="descricao" class="pl-1 col-form-label col-form-label-sm"
               >Descrição:</label
             >
             <input
@@ -20,12 +20,12 @@
             />
           </div>
           <div class="mb-1">
-            <label for="casado" class="pl-1 col-form-label col-form-label-sm"
+            <label for="status" class="pl-1 col-form-label col-form-label-sm"
               >Status:</label
             >
             <select
-              name="casado"
-              id="casado"
+              name="status"
+              id="status"
               class="form-control form-control-md"
               disabled
             >
@@ -49,16 +49,15 @@
             </div>
             <div class="col">
               <label
-                for="dataCadastro"
+                for="dataFinalizado"
                 class="pl-1 col-form-label col-form-label-sm "
-                >Data de Cadastro:</label
+                >Data de Finalização:</label
               >
               <input
                 type="date"
                 step="1"
-                name="dataCadastro"
+                name="dataFinalizado"
                 class="form-control form-control-md disabled"
-                placeholder="Digite a idade da pessoa..."
                 disabled
               />
             </div>
