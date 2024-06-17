@@ -82,24 +82,41 @@ class helpDeskDatabase {
     });
   }
   createInsertStatus() {
-    let sql = `SELECT count( *) FROM status`;
-    if (sql !== 0) {
-    sql = `      
-        INSERT INTO status (descricao) VALUES ('Aberto'),
-                                                                        ('Em Analise'),
-                                                                        ('Encaminhado Desenvolvimento'),
-                                                                        ('Finalizado');
-        `;
-    }
-    this.connection.query(sql, (error) => {
+    // Definindo a consulta para contar o número de registros na tabela
+    let contadorQuery = `SELECT COUNT(*) AS count FROM status`;
+    
+    // Executando a consulta para contar os registros
+    this.connection.query(contadorQuery, (error, results) => {
       if (error) {
-        console.log("Ocorreu um erro ao criar a tabela tarefa..."); 
-        console.log(error.message); 
+        console.log("Erro ao verificar os registros na tabela 'status':", error.message);
         return;
       }
-      console.log("Script criad com sucesso..."); 
+  
+      // Verificando o resultado da contagem
+      let contador = results[0].count;
+      if (contador === 0) {
+        // Se não houver registros, inserir novos registros
+        let sql = `
+          INSERT INTO status (descricao) VALUES ('Aberto'),
+                                                ('Em Analise'),
+                                                ('Encaminhado Desenvolvimento'),
+                                                ('Finalizado');
+        `;
+        
+        // Executando a consulta para inserir novos registros
+        this.connection.query(sql, (insertError) => {
+          if (insertError) {
+            console.log("Erro ao criar registros na tabela 'status':", insertError.message);
+            return;
+          }
+          console.log("Registros criados com sucesso na tabela 'status'...");
+        });
+      } else {
+        console.log("A tabela 'status' já contém registros, nenhum novo registro foi inserido.");
+      }
     });
   }
+  
 
 }
 
