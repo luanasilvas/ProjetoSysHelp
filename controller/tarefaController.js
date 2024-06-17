@@ -1,6 +1,7 @@
 const tarefaModel = require("../models/tarefaModel.js");
 
 class tarefaController{
+
    apiReadList(req, res) {
     const retorno = tarefaModel.apiReadList();
     return retorno

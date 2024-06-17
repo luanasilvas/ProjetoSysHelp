@@ -31,10 +31,10 @@
               class="form-control form-control-md"
               value="<%= row.status %>"
             >
-              <option value="1">Aberto</option>
-              <option value="2">Em Analise</option>
-              <option value="3">Encaminhado Desenvolvimento</option>
-              <option value="2">Finalizado</option>
+            <option value="1" <% if (row.status_id == '1') { %>selected<% } %>>Aberto</option>
+            <option value="2" <% if (row.status_id == '2') { %>selected<% } %>>Em Analise</option>
+            <option value="3" <% if (row.status_id == '3') { %>selected<% } %>>Encaminhado Desenvolvimento</option>
+            <option value="4" <% if (row.status_id == '4') { %>selected<% } %>>Finalizado</option>
             </select>
           </div>
           <div class="mb-1 row">
@@ -45,7 +45,7 @@
                 >Data de Cadastro:</label
               >
               <input
-                type="date"
+                type="datetime"
                 step="1"
                 name="dataCadastro"
                 class="form-control form-control-md "
