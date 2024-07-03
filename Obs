@@ -1,3 +1,3 @@
 -- Criar o banco de dados
-CREATE DATABASE db_pessoa
+CREATE DATABASE db_helpDesk
 
